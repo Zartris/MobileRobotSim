@@ -1,5 +1,7 @@
-# Prerequisites
-*.d
+# Build directories
+build/
+build_*/
+cmake-build-*/
 
 # Compiled Object files
 *.slo
@@ -16,10 +18,6 @@
 *.dylib
 *.dll
 
-# Fortran module files
-*.mod
-*.smod
-
 # Compiled Static libraries
 *.lai
 *.la
@@ -30,3 +28,60 @@
 *.exe
 *.out
 *.app
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+
+# Generated documentation
+docs/html/
+docs/latex/
+
+# Python virtual environment
+venv/
+env/
+.env/
+
+# Dependency directories
+_deps/
+third_party/build/
+
+# macOS specific files
+.DS_Store
+
+# Log files
+*.log
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Simulation output files
+*.json
+*.dat
+*.csv
+simulation_*/
+
+# Eigen related temporary files
+Eigen/
+
+# Binary files
+bin/
+lib/

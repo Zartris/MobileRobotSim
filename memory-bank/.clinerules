@@ -1,0 +1,81 @@
+# MobileRobotSim Project Rules
+
+This document captures important patterns, preferences, and project intelligence I've learned while working on the MobileRobotSim project.
+
+## Code Style and Conventions
+
+### C++ Naming Conventions
+- Class names: PascalCase (e.g., `SimulationEngine`, `PointRobot`)
+- Member variables: camelCase with trailing underscore (e.g., `position_`, `simulationTime_`)
+- Methods: camelCase (e.g., `updateState`, `getPosition`)
+- Constants and enums: UPPER_SNAKE_CASE (e.g., `MAX_ROBOTS`, `SIMULATION_STEP_SIZE`)
+- Template parameters: PascalCase, typically single letter or descriptive (e.g., `T`, `StateType`)
+
+### File Organization
+- Header files in `include/mobilerobotsim/` directory
+- Implementation files in `src/` directory
+- One class per file, with filename matching class name
+- Tests in `test/` directory with filename pattern `*_test.cpp`
+
+### Documentation
+- Class and function declarations fully documented in header files
+- Implementation details documented in source files as needed
+- Documentation follows Doxygen format
+- Complex algorithms include step-by-step explanations
+
+## Architecture Patterns
+
+### State Management
+- All stateful components must implement:
+  - `getState()` - Returns current state
+  - `loadState(state)` - Reconstructs state from saved data
+- State objects should be copyable and serializable
+
+### Component Ownership
+- SimulationEngine owns robots and environment
+- Smart pointers used for resource management
+- Clear ownership semantics throughout the codebase
+
+### Extension Points
+- Abstract interfaces for extensibility
+- Strategy pattern for algorithms
+- Observer pattern for event handling
+
+## Build and Test Practices
+
+### CMake Configuration
+- One CMakeLists.txt per directory
+- External dependencies managed through CMake modules
+- Build options clearly documented
+
+### Testing Approach
+- Unit tests for individual components
+- Integration tests for component interactions
+- Scenario tests for end-to-end validation
+- Test fixtures for common setup
+
+## Performance Considerations
+
+### Optimization Guidelines
+- Avoid heap allocations in the simulation loop
+- Use Eigen for vector/matrix operations
+- Consider cache locality in data structures
+- Minimize virtual function calls in performance-critical paths
+- Pre-allocate containers where possible
+
+### Memory Management
+- Prefer smart pointers over raw pointers
+- Use move semantics for large data structures
+- Consider custom allocators for simulation objects if needed
+
+## Working Habits and Preferences
+
+This section will be populated as we work together on the project and I learn about specific working patterns and preferences.
+
+## Evolution of Project Decisions
+
+This section will track key decisions and their evolution as the project progresses.
+
+## Known Challenges and Solutions
+
+This section will document challenges encountered and their solutions as the project progresses.
