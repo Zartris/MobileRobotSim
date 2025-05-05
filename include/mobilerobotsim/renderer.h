@@ -36,7 +36,7 @@ class Renderer : public SimulationObserver {
    * 
    * @param state Reference to the current state of the simulation
    */
-  void OnStep(const SystemState& state) override;
+  void onStep(const SystemState& state) override;
 
   /**
    * @brief Called when a collision is detected.
@@ -47,7 +47,7 @@ class Renderer : public SimulationObserver {
    * @param robot Pointer to the robot involved in the collision
    * @param object Pointer to the object involved in the collision
    */
-  void OnCollision(const MobileRobotBase* robot, 
+  void onCollision(const MobileRobotBase* robot, 
                  const void* object) override;
 
   /**
@@ -59,7 +59,7 @@ class Renderer : public SimulationObserver {
    * @param robot Pointer to the robot that reached the merge point
    * @param mergePoint Pointer to the merge point that was reached
    */
-  void OnMergePoint(const MobileRobotBase* robot, 
+  void onMergePoint(const MobileRobotBase* robot, 
                    const EnvironmentElement* mergePoint) override;
   
   /**
@@ -70,7 +70,7 @@ class Renderer : public SimulationObserver {
    * 
    * @return True if initialization was successful, false otherwise
    */
-  bool Initialize();
+  bool initialize();
   
   /**
    * @brief Renders the current simulation state.
@@ -80,7 +80,7 @@ class Renderer : public SimulationObserver {
    * 
    * @param state The state to render
    */
-  void Render(const SystemState& state);
+  void render(const SystemState& state);
   
   /**
    * @brief Shuts down the renderer.
@@ -88,11 +88,11 @@ class Renderer : public SimulationObserver {
    * This method cleans up resources used by the renderer,
    * such as closing windows, releasing graphics resources, etc.
    */
-  void Shutdown();
+  void shutdown();
   
  private:
   /// Flag indicating whether the renderer has been initialized
-  bool initialized_;
+  bool initialized;
 };
 
 } // namespace mobilerobotsim

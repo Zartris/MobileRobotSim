@@ -31,7 +31,7 @@ class SimulationObserver {
    * 
    * @param state Reference to the current state of the simulation
    */
-  virtual void OnStep(const SystemState& state) = 0;
+  virtual void onStep(const SystemState& state) = 0;
 
   /**
    * @brief Called when a collision is detected.
@@ -42,7 +42,7 @@ class SimulationObserver {
    * @param robot Pointer to the robot involved in the collision
    * @param object Pointer to the object involved in the collision
    */
-  virtual void OnCollision(const MobileRobotBase* robot, 
+  virtual void onCollision(const MobileRobotBase* robot, 
                           const void* object) = 0;
 
   /**
@@ -54,7 +54,7 @@ class SimulationObserver {
    * @param robot Pointer to the robot that reached the merge point
    * @param mergePoint Pointer to the merge point that was reached
    */
-  virtual void OnMergePoint(const MobileRobotBase* robot, 
+  virtual void onMergePoint(const MobileRobotBase* robot, 
                            const EnvironmentElement* mergePoint) = 0;
 };
 
